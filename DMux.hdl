@@ -1,0 +1,26 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/DMux.hdl
+
+/**
+ * Demultiplexor:
+ * {a, b} = {in, 0} if sel == 0
+ *          {0, in} if sel == 1
+ */
+
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    // Put your code here:
+    Not(in=sel, out=notOut);
+    And(a=in, b=sel, out=b);
+    And(a=notOut, b=in, out=a);
+    /** ex. sel=0 -> 1 for the not gate
+     *  a=1 and sel=0 for the and gate -> 0 (a's output)
+     *  then, the not gate's value (1) and b=1 will output 1 in the and gate (b's output)
+     *  since sel=0, the output will be {in, 0} = {a, b} -> {0, 0}
+     */
+}

@@ -1,0 +1,22 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Not.hdl
+
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Nand(a=in, b=in, out=out); 
+    /** ex. a=1 & b=1 will output 0 in the truth table of a nand gate
+     *  also, for a=0 & b=0 -> 1
+     *  this will display correct opposite values for the not gate
+     */
+}

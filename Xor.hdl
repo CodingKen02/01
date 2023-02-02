@@ -1,0 +1,30 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Xor.hdl
+
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Not(in=a, out=aOut);
+    Not(in=b, out=bOut);
+    And(a=aOut, b=b, out=andOut1);
+    And(a=a, b=bOut, out=andOut2);
+    Or(a=andOut1, b=andOut2, out=out);
+    /** ex. a=1 -> aOut = 0 (not gate)
+     *  b=1 -> bOut = 0
+     *  inputting aOut and b=1 in an and gate will ouput 0
+     *  inputting a=1 and bOut will output 0
+     *  putting both 0's in the or gate will ouput 0
+     *  since xor is only exclusive to each other's value, the final output would be 0 
+     *  ^ (since the values in the example are the same)
+     */
+}
